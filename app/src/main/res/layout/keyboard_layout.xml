@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/keys_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="4dp"
+    android:background="#000000">
+
+    <!-- Row 1 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="q"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="w"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="e"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="r"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="t"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="y"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="u"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="i"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="o"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="p"/>
+    </LinearLayout>
+
+    <!-- Row 2 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="a"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="s"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="d"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="f"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="g"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="h"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="j"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="k"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="l"/>
+    </LinearLayout>
+
+    <!-- Row 3 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="z"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="x"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="c"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="v"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="b"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="n"/>
+        <TextView style="@style/KeyStyle" android:layout_weight="1" android:text="m"/>
+
+        <TextView
+            style="@style/KeyStyle"
+            android:layout_weight="1.5"
+            android:text="@string/key_delete"/>
+    </LinearLayout>
+
+    <!-- Row 4 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/KeyStyle"
+            android:layout_weight="1.5"
+            android:text="ru"/>
+
+        <TextView
+            style="@style/KeyStyle"
+            android:layout_weight="6"
+            android:text=" "/>
+
+        <TextView
+            style="@style/KeyStyle"
+            android:layout_weight="1.2"
+            android:text="." />
+
+        <TextView
+            style="@style/KeyStyle"
+            android:layout_weight="1.5"
+            android:text="@string/key_enter"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Goy Keyboard</string>
+    <string name="key_enter">⏎</string>
+    <string name="key_delete">⌫</string>
+</resources>

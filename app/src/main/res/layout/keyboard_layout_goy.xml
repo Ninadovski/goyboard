@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/keys_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="4dp"
+    android:background="#000000">
+
+    <!-- Row 1 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView style="@style/KeyStyle" android:text="ŭ"/>
+        <TextView style="@style/KeyStyle" android:text="ꚏ"/>
+        <TextView style="@style/KeyStyle" android:text="ʏ"/>
+        <TextView style="@style/KeyStyle" android:text="ќ"/>
+        <TextView style="@style/KeyStyle" android:text="℮"/>
+        <TextView style="@style/KeyStyle" android:text="ӊ"/>
+        <TextView style="@style/KeyStyle" android:text="r"/>
+        <TextView style="@style/KeyStyle" android:text="ɯ"/>
+        <TextView style="@style/KeyStyle" android:text="ɯ,"/>
+        <TextView style="@style/KeyStyle" android:text="3"/>
+        <TextView style="@style/KeyStyle" android:text="χ"/>
+    </LinearLayout>
+
+    <!-- Row 2 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView style="@style/KeyStyle" android:text="φ"/>
+        <TextView style="@style/KeyStyle" android:text="bI"/>
+        <TextView style="@style/KeyStyle" android:text="β"/>
+        <TextView style="@style/KeyStyle" android:text="ä"/>
+        <TextView style="@style/KeyStyle" android:text="n"/>
+        <TextView style="@style/KeyStyle" android:text="ƿ"/>
+        <TextView style="@style/KeyStyle" android:text="0"/>
+        <TextView style="@style/KeyStyle" android:text="JI"/>
+        <TextView style="@style/KeyStyle" android:text="∂"/>
+        <TextView style="@style/KeyStyle" android:text="ӝ"/>
+        <TextView style="@style/KeyStyle" android:text="є"/>
+    </LinearLayout>
+
+    <!-- Row 3 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView style="@style/KeyStyle" android:text="ᴚ"/>
+        <TextView style="@style/KeyStyle" android:text="ɥ"/>
+        <TextView style="@style/KeyStyle" android:text="ć"/>
+        <TextView style="@style/KeyStyle" android:text="ⲙ"/>
+        <TextView style="@style/KeyStyle" android:text="u"/>
+        <TextView style="@style/KeyStyle" android:text="τ"/>
+        <TextView style="@style/KeyStyle" android:text="b"/>
+        <TextView style="@style/KeyStyle" android:text="6"/>
+        <TextView style="@style/KeyStyle" android:text="𝓲𝓸"/>
+
+        <TextView
+            style="@style/KeyStyle"
+            android:layout_weight="1.5"
+            android:text="@string/key_delete"/>
+    </LinearLayout>
+
+    <!-- Row 4 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/KeyStyle"
+            android:layout_weight="1.5"
+            android:text="en"/>
+
+        <TextView
+            style="@style/KeyStyle"
+            android:layout_weight="6"
+            android:text=" "/>
+
+        <TextView
+            style="@style/KeyStyle"
+            android:layout_weight="1.2"
+            android:text="."/>
+
+        <TextView
+            style="@style/KeyStyle"
+            android:layout_weight="1.5"
+            android:text="@string/key_enter"/>
+    </LinearLayout>
+
+</LinearLayout>

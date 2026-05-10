@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/keys_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="4dp"
+    android:background="#000000">
+
+    <!-- Row 1 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView style="@style/KeyStyle" android:text="й"/>
+        <TextView style="@style/KeyStyle" android:text="ц"/>
+        <TextView style="@style/KeyStyle" android:text="у"/>
+        <TextView style="@style/KeyStyle" android:text="к"/>
+        <TextView style="@style/KeyStyle" android:text="е"/>
+        <TextView style="@style/KeyStyle" android:text="н"/>
+        <TextView style="@style/KeyStyle" android:text="г"/>
+        <TextView style="@style/KeyStyle" android:text="ш"/>
+        <TextView style="@style/KeyStyle" android:text="щ"/>
+        <TextView style="@style/KeyStyle" android:text="з"/>
+        <TextView style="@style/KeyStyle" android:text="х"/>
+    </LinearLayout>
+
+    <!-- Row 2 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView style="@style/KeyStyle" android:text="ф"/>
+        <TextView style="@style/KeyStyle" android:text="ы"/>
+        <TextView style="@style/KeyStyle" android:text="в"/>
+        <TextView style="@style/KeyStyle" android:text="а"/>
+        <TextView style="@style/KeyStyle" android:text="п"/>
+        <TextView style="@style/KeyStyle" android:text="р"/>
+        <TextView style="@style/KeyStyle" android:text="о"/>
+        <TextView style="@style/KeyStyle" android:text="л"/>
+        <TextView style="@style/KeyStyle" android:text="д"/>
+        <TextView style="@style/KeyStyle" android:text="ж"/>
+        <TextView style="@style/KeyStyle" android:text="э"/>
+    </LinearLayout>
+
+    <!-- Row 3 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView style="@style/KeyStyle" android:text="я"/>
+        <TextView style="@style/KeyStyle" android:text="ч"/>
+        <TextView style="@style/KeyStyle" android:text="с"/>
+        <TextView style="@style/KeyStyle" android:text="м"/>
+        <TextView style="@style/KeyStyle" android:text="и"/>
+        <TextView style="@style/KeyStyle" android:text="т"/>
+        <TextView style="@style/KeyStyle" android:text="ь"/>
+        <TextView style="@style/KeyStyle" android:text="б"/>
+        <TextView style="@style/KeyStyle" android:text="ю"/>
+
+        <TextView
+            style="@style/KeyStyle"
+            android:layout_weight="1.5"
+            android:text="@string/key_delete"/>
+    </LinearLayout>
+
+    <!-- Row 4 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView
+            style="@style/KeyStyle"
+            android:layout_weight="1.5"
+            android:text="en"/>
+        <TextView
+            style="@style/KeyStyle"
+            android:layout_weight="6"
+            android:text=" "/>
+        <TextView
+            style="@style/KeyStyle"
+            android:layout_weight="1.2"
+            android:text="."/>
+        <TextView
+            style="@style/KeyStyle"
+            android:layout_weight="1.5"
+            android:text="@string/key_enter"/>
+    </LinearLayout>
+</LinearLayout>

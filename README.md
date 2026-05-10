@@ -1,5 +1,5 @@
 <img src="app/src/main/res/mipmap-hdpi/icon.png" width="128"/>
-## Goyboard 
+# Goyboard 
 
 Фичи: 
 - Родные раскладки: Встроены классические QWERTY и ЙЦУКЕН                           //куда без них 

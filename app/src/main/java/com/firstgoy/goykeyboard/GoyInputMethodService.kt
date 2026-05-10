@@ -21,7 +21,7 @@ class GoyInputMethodService : InputMethodService() {
     private val keyDelete by lazy { getString(R.string.key_delete) }
     private val keyEnter by lazy { getString(R.string.key_enter) }
 
-    enum class LayoutMode { EN, RU, GOY, EMOJI }
+    enum class LayoutMode { EN, RU, GOY, EMOJI, NUM }
     private var currentMode = LayoutMode.EN
     private var previousMode = LayoutMode.EN
 
@@ -40,8 +40,11 @@ class GoyInputMethodService : InputMethodService() {
         val swipeThreshold = 50
         
         if (text == "ru" || text == "en" || text == "goy" || text == "abc") {
-            if (currentMode == LayoutMode.EMOJI) {
+            if (currentMode == LayoutMode.EMOJI || currentMode == LayoutMode.NUM) {
                 currentMode = previousMode
+            } else if (deltaX > swipeThreshold) {
+                previousMode = currentMode
+                currentMode = LayoutMode.NUM
             } else {
                 val currentTime = System.currentTimeMillis()
                 if (currentTime - lastLanguageClickTime < doubleTapThreshold) {
@@ -135,12 +138,14 @@ class GoyInputMethodService : InputMethodService() {
             LayoutMode.EN -> R.layout.keyboard_layout
             LayoutMode.RU -> R.layout.keyboard_layout_ru
             LayoutMode.GOY -> R.layout.keyboard_layout_goy
+            LayoutMode.NUM -> R.layout.keyboard_layout_num
             LayoutMode.EMOJI -> R.layout.keyboard_layout_emoji
         }
         val view = layoutInflater.inflate(layoutId, null)
         
-        if (currentMode == LayoutMode.EMOJI) {
-            val backButton = view.findViewById<TextView>(R.id.key_emoji_back)
+        if (currentMode == LayoutMode.EMOJI || currentMode == LayoutMode.NUM) {
+            val backButtonId = if (currentMode == LayoutMode.EMOJI) R.id.key_emoji_back else R.id.key_num_back
+            val backButton = view.findViewById<TextView>(backButtonId)
             backButton?.text = when (previousMode) {
                 LayoutMode.EN -> "en"
                 LayoutMode.RU -> "ru"
@@ -174,7 +179,7 @@ class GoyInputMethodService : InputMethodService() {
                         
                         if (text == keyDelete) {
                             startBackspaceRepeating(ic, v)
-                        } else if (text == "ru" || text == "en" || text == "goy" || v.id == R.id.key_emoji_back) {
+                        } else if (text == "ru" || text == "en" || text == "goy" || v.id == R.id.key_emoji_back || v.id == R.id.key_num_back) {
                             languageLongPressRunnable = Runnable {
                                 if (currentMode != LayoutMode.EMOJI) {
                                     previousMode = currentMode

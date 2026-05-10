@@ -1,4 +1,5 @@
-## Goyboard <img src="app/src/main/res/mipmap-hdpi/icon.png" width="128"/>
+<img src="app/src/main/res/mipmap-hdpi/icon.png" width="128"/>
+## Goyboard 
 Фичи: 
 - Родные раскладки: Встроены классические QWERTY и ЙЦУКЕН                           //куда без них 
 - Ничего лишнего: работает максимально быстро и имеет базовое управление жестами    //KISS 

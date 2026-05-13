@@ -6,6 +6,8 @@ import android.os.Looper
 import android.view.HapticFeedbackConstants
 import android.view.KeyEvent
 import android.view.MotionEvent
+import android.util.Log
+import com.firstgoy.goykeyboard.R
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -40,8 +42,13 @@ class GoyInputMethodService : InputMethodService() {
         val swipeThreshold = 50
         
         if (text == "ru" || text == "en" || text == "goy" || text == "abc") {
-            if (currentMode == LayoutMode.EMOJI || currentMode == LayoutMode.NUM) {
-                currentMode = previousMode
+        if (currentMode == LayoutMode.EMOJI || currentMode == LayoutMode.NUM) {
+            // Only revert to a main layout, not another secondary layout
+            currentMode = if (previousMode == LayoutMode.EMOJI || previousMode == LayoutMode.NUM) {
+                LayoutMode.EN
+            } else {
+                previousMode
+            }
             } else if (deltaX > swipeThreshold) {
                 previousMode = currentMode
                 currentMode = LayoutMode.NUM
@@ -123,15 +130,23 @@ class GoyInputMethodService : InputMethodService() {
         }
     }
 
-    private fun deleteWord(ic: InputConnection) {
-        val textBefore = ic.getTextBeforeCursor(100, 0) ?: ""
-        if (textBefore.isEmpty()) return
-        var i = textBefore.length - 1
-        while (i >= 0 && Character.isWhitespace(textBefore[i])) i--
-        while (i >= 0 && !Character.isWhitespace(textBefore[i])) i--
-        val charsToDelete = textBefore.length - 1 - i
-        ic.deleteSurroundingText(charsToDelete, 0)
-    }
+            private fun deleteWord(ic: InputConnection) {
+                val textBefore = ic.getTextBeforeCursor(100, 0) ?: ""
+                if (textBefore.isEmpty()) return
+                
+                var i = textBefore.length - 1
+                while (i >= 0 && Character.isWhitespace(textBefore[i])) i--
+                
+                // Handle case where text is all whitespace
+                if (i < 0) {
+                    ic.deleteSurroundingText(textBefore.length, 0)
+                    return
+                }
+                
+                while (i >= 0 && !Character.isWhitespace(textBefore[i])) i--
+                val charsToDelete = textBefore.length - 1 - i
+                ic.deleteSurroundingText(charsToDelete, 0)
+            }
 
     override fun onCreateInputView(): View {
         val layoutId = when (currentMode) {
@@ -165,7 +180,10 @@ class GoyInputMethodService : InputMethodService() {
             }
         } else if (view is TextView) {
             view.setOnTouchListener { v, event ->
-                val ic = currentInputConnection ?: return@setOnTouchListener false
+                val ic = currentInputConnection ?: run {
+                    Log.w("Keyboard", "No input connection available")
+                    return@setOnTouchListener false
+                }
                 val textView = v as TextView
                 val text = textView.text.toString()
 
@@ -180,6 +198,11 @@ class GoyInputMethodService : InputMethodService() {
                         if (text == keyDelete) {
                             startBackspaceRepeating(ic, v)
                         } else if (text == "ru" || text == "en" || text == "goy" || v.id == R.id.key_emoji_back || v.id == R.id.key_num_back) {
+                            // Reset previousMode to a main layout if it's currently a secondary layout
+                            if (previousMode == LayoutMode.EMOJI || previousMode == LayoutMode.NUM) {
+                                previousMode = LayoutMode.EN
+                            }
+                            
                             languageLongPressRunnable = Runnable {
                                 if (currentMode != LayoutMode.EMOJI) {
                                     previousMode = currentMode

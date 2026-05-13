@@ -2,4 +2,5 @@
     <string name="app_name">Goy Keyboard</string>
     <string name="key_enter">⏎</string>
     <string name="key_delete">⌫</string>
+    <string name="search_hint">Search...</string>
 </resources>

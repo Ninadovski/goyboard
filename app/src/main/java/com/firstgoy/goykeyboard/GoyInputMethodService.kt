@@ -157,7 +157,7 @@ class GoyInputMethodService : InputMethodService() {
             LayoutMode.EMOJI -> R.layout.keyboard_layout_emoji
         }
         val view = layoutInflater.inflate(layoutId, null)
-        
+
         if (currentMode == LayoutMode.EMOJI || currentMode == LayoutMode.NUM) {
             val backButtonId = if (currentMode == LayoutMode.EMOJI) R.id.key_emoji_back else R.id.key_num_back
             val backButton = view.findViewById<TextView>(backButtonId)
